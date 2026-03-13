@@ -554,53 +554,73 @@ font-size:18px;
 
 }
 
-.menu-toggle{
-display:none;
-font-size:30px;
-cursor:pointer;
-color:#0b2d48;
-}
 
-@media (max-width:768px){
-
-nav{
-display:none;
-flex-direction:column;
-background:#ebeaea;
-width:100%;
-position:absolute;
-top:80px;
-left:0;
-}
-
-nav a{
-padding:15px;
-border-bottom:1px solid #ddd;
-}
-
-nav.active{
-display:flex;
-}
-
-.menu-toggle{
-display:block;
-}
-
-}
-
-
-/* Posicionar el icono del menú a la derecha del header */
+/* Menú hamburguesa móvil */
 .menu-toggle{
   display:none;          /* solo visible en móvil */
   font-size:30px;
   cursor:pointer;
   color:#0b2d48;
-  position:absolute;     /* para moverlo */
+  position:absolute;
   top:25px;
   right:20px;
   z-index:1100;          /* encima del header */
 }
 
+@media (max-width:768px){
+
+  /* Ocultar nav por defecto */
+  nav{
+    display:none;
+    flex-direction:column;
+    background:#ebeaea;
+    width:100%;
+    position:absolute;
+    top:70px;       /* debajo del header */
+    left:0;
+    z-index:1050;
+    align-items:center;
+  }
+
+  /* Enlaces ocupan todo el ancho */
+  nav a{
+    display:block;
+    width:100%;
+    padding:15px;
+    border-bottom:1px solid #ddd;
+    color:#0b2d48;
+    text-align:center;
+    font-weight:bold;
+  }
+
+  /* Mostrar nav al hacer click */
+  nav.active{
+    display:flex;
+  }
+
+  /* Mostrar icono en móviles */
+  .menu-toggle{
+    display:block;
+  }
+
+  /* Ajustes de header y hero para móviles */
+  header{
+    padding:15px;
+  }
+
+  .hero{
+    height:70vh;
+    padding:20px;
+  }
+
+  .hero-content h1{
+    font-size:28px;
+  }
+
+  .hero-content p{
+    font-size:18px;
+  }
+}
 
 
 
