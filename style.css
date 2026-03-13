@@ -554,6 +554,41 @@ font-size:18px;
 
 }
 
+.menu-toggle{
+display:none;
+font-size:30px;
+cursor:pointer;
+color:#0b2d48;
+}
+
+@media (max-width:768px){
+
+nav{
+display:none;
+flex-direction:column;
+background:#ebeaea;
+width:100%;
+position:absolute;
+top:80px;
+left:0;
+}
+
+nav a{
+padding:15px;
+border-bottom:1px solid #ddd;
+}
+
+nav.active{
+display:flex;
+}
+
+.menu-toggle{
+display:block;
+}
+
+}
+
+
 
 
 

@@ -25,3 +25,12 @@ imagenes[index-1].style.display = "block";
 setTimeout(mostrarImagen, 3000);
 
 }
+
+
+const toggle = document.getElementById("menu-toggle");
+const menu = document.getElementById("menu");
+
+toggle.addEventListener("click", () => {
+menu.classList.toggle("active");
+});
+
