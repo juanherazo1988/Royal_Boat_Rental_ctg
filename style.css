@@ -552,70 +552,17 @@ font-size:18px;
 }
 
 
-/* Icono de menú (hamburguesa) */
-.menu-toggle {
-  display: none;          
-  font-size: 30px;
-  cursor: pointer;
-  color: #0b2d48;
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  z-index: 2100;
-}
+/* MENU HAMBURGUESA */
 
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 30px;
-    cursor: pointer;
-    color: #0b2d48;
-    z-index: 2100;
-  }
-
-  nav {
-    display: none;          /* oculto por defecto */
-    flex-direction: column;
-    position: fixed;        /* fijo en pantalla */
-    top: 60px;              /* justo debajo del header */
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 60px); /* para que quepa toda la pantalla */
-    background: #ebeaea;
-    overflow-y: auto;       /* scroll si hay muchos enlaces */
-    z-index: 2000;
-    align-items: center;
-  }
-
-  nav.active {
-    display: flex;          /* se muestra al activar */
-  }
-
-  nav a {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-    text-align: center;
-    font-weight: bold;
-    color: #0b2d48;
-  }
-
-}
-
-
-/* ICONO MENU */
 .menu-toggle{
 display:none;
 font-size:30px;
 cursor:pointer;
-color:#0b2d48;
 position:absolute;
 right:20px;
-top:25px;
+top:20px;
+color:#0b2d48;
+z-index:3000;
 }
 
 /* MENU MOVIL */
@@ -626,33 +573,32 @@ display:block;
 }
 
 nav{
-display:none;
-flex-direction:column;
 position:fixed;
-top:70px;
-left:0;
-width:100%;
+top:0;
+left:-260px;
+width:260px;
+height:100%;
 background:#ebeaea;
+flex-direction:column;
+padding-top:80px;
+transition:0.4s;
 z-index:2000;
 }
 
 nav a{
 display:block;
-padding:15px;
+padding:18px;
 border-bottom:1px solid #ddd;
-width:100%;
-text-align:center;
+text-align:left;
+padding-left:25px;
+font-weight:bold;
 }
 
 nav.active{
-display:flex;
+left:0;
 }
 
 }
-
-
-
-
 
 
 
