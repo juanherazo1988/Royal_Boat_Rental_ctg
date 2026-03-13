@@ -1,4 +1,10 @@
 body{
+padding-top:90px;
+}
+
+
+
+body{
 
 margin:0;
 font-family:Arial;
@@ -426,6 +432,129 @@ border-radius:10px;
 color:gold;
 
 }
+
+body{
+margin:0;
+font-family:Arial;
+background:#0b2d48;
+text-align:center;
+}
+
+header{
+padding:20px;
+}
+
+nav{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+nav a{
+padding:10px;
+font-size:16px;
+}
+
+
+@media (max-width:768px){
+
+h1{
+font-size:24px;
+}
+
+nav a{
+display:block;
+width:100%;
+margin:5px 0;
+}
+
+img{
+width:100%;
+height:auto;
+}
+
+}
+
+@media (max-width:768px){
+
+header{
+padding:15px;
+}
+
+nav{
+flex-direction:column;
+align-items:center;
+}
+
+nav a{
+display:block;
+width:100%;
+padding:12px;
+margin:3px 0;
+font-size:16px;
+}
+
+.hero{
+height:70vh;
+padding:20px;
+}
+
+.hero-content h1{
+font-size:28px;
+}
+
+.hero-content p{
+font-size:18px;
+}
+
+.cards{
+flex-direction:column;
+align-items:center;
+}
+
+.card{
+width:90%;
+}
+
+.tour-container{
+flex-direction:column;
+align-items:center;
+}
+
+.tour-card{
+width:90%;
+}
+
+.botes-container{
+flex-direction:column;
+align-items:center;
+}
+
+.bote-card{
+width:90%;
+}
+
+.galeria{
+grid-template-columns:1fr;
+}
+
+.slider{
+height:300px;
+}
+
+.slide{
+height:300px;
+}
+
+.whatsapp-float{
+width:55px;
+height:55px;
+font-size:18px;
+}
+
+}
+
+
 
 
 
