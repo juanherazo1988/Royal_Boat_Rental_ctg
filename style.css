@@ -93,9 +93,6 @@ transform:scale(1.08);
 }
 
 
-
-
-
 footer{
 
 background:black;
@@ -555,30 +552,33 @@ font-size:18px;
 }
 
 
-/* Icono de menú */
+/* Icono de menú (hamburguesa) */
 .menu-toggle {
-  display: none;          /* solo visible en móvil */
+  display: none;          
   font-size: 30px;
   cursor: pointer;
   color: #0b2d48;
   position: absolute;
-  top: 15px;              /* ajusta según tu header */
+  top: 15px;
   right: 20px;
   z-index: 2100;
 }
 
 /* Menú móvil */
 @media (max-width: 768px) {
+
   nav {
     display: none;          /* oculto por defecto */
     flex-direction: column;
     background: #ebeaea;
     width: 100%;
-    position: absolute;
+    position: fixed;        /* fixed para que no se salga de la pantalla */
     top: 60px;              /* justo debajo del header */
     left: 0;
     z-index: 2000;
     align-items: center;
+    max-height: calc(100vh - 60px); /* evita que se salga de la pantalla */
+    overflow-y: auto;       /* permite scroll si hay muchos enlaces */
   }
 
   nav a {
@@ -599,16 +599,6 @@ font-size:18px;
     display: block;
   }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
