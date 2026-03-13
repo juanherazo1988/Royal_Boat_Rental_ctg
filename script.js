@@ -2,28 +2,22 @@ let index = 0;
 
 mostrarImagen();
 
-function mostrarImagen(){
+function mostrarImagen() {
+    let imagenes = document.getElementsByClassName("slide");
 
-let imagenes = document.getElementsByClassName("slide");
+    for (let i = 0; i < imagenes.length; i++) {
+        imagenes[i].style.display = "none";
+    }
 
-for(let i = 0; i < imagenes.length; i++){
+    index++;
 
-imagenes[i].style.display = "none";
+    if (index >= imagenes.length) {
+        index = 0;
+    }
 
-}
+    imagenes[index].style.display = "block";
 
-index++;
-
-if(index > imagenes.length){
-
-index = 1;
-
-}
-
-imagenes[index-1].style.display = "block";
-
-setTimeout(mostrarImagen, 3000);
-
+    setTimeout(mostrarImagen, 3000);
 }
 
 
