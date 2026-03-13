@@ -589,6 +589,20 @@ display:block;
 }
 
 
+/* Posicionar el icono del menú a la derecha del header */
+.menu-toggle{
+  display:none;          /* solo visible en móvil */
+  font-size:30px;
+  cursor:pointer;
+  color:#0b2d48;
+  position:absolute;     /* para moverlo */
+  top:25px;
+  right:20px;
+  z-index:1100;          /* encima del header */
+}
+
+
+
 
 
 
