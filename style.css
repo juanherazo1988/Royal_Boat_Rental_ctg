@@ -564,21 +564,34 @@ font-size:18px;
   z-index: 2100;
 }
 
-/* Menú móvil */
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #0b2d48;
+    z-index: 2100;
+  }
 
   nav {
     display: none;          /* oculto por defecto */
     flex-direction: column;
-    background: #ebeaea;
-    width: 100%;
-    position: fixed;        /* fixed para que no se salga de la pantalla */
+    position: fixed;        /* fijo en pantalla */
     top: 60px;              /* justo debajo del header */
     left: 0;
+    width: 100%;
+    height: calc(100vh - 60px); /* para que quepa toda la pantalla */
+    background: #ebeaea;
+    overflow-y: auto;       /* scroll si hay muchos enlaces */
     z-index: 2000;
     align-items: center;
-    max-height: calc(100vh - 60px); /* evita que se salga de la pantalla */
-    overflow-y: auto;       /* permite scroll si hay muchos enlaces */
+  }
+
+  nav.active {
+    display: flex;          /* se muestra al activar */
   }
 
   nav a {
@@ -590,20 +603,7 @@ font-size:18px;
     font-weight: bold;
     color: #0b2d48;
   }
-
-  nav.active {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
 }
-
-
-
-
-
 
 
 
