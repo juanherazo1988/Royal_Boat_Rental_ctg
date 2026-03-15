@@ -574,15 +574,17 @@ display:block;
 
 nav{
 position:fixed;
-top:0;
-left:-260px;
-width:260px;
-height:100%;
+top:70px;
+left:-220px;
+width:220px;
+height:auto;
 background:#ebeaea;
 flex-direction:column;
-padding-top:80px;
+padding-top:20px;
 transition:0.4s;
 z-index:2000;
+border-radius:0 10px 10px 0;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
 
 nav a{
