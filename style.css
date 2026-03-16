@@ -429,5 +429,108 @@ text-align:left;
 color:#FFD700;
 }
 
+/* Slider container */
+.reseñas-slider-container{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  gap:10px;
+}
+
+/* Slider */
+.reseñas-slider{
+  display:flex;
+  gap:20px;
+  transition:transform 0.5s ease;
+}
+
+/* Cards */
+.reseña-card{
+  background:#123a5c;
+  min-width:280px;  /* más compacto */
+  max-width:300px;  /* limitar ancho */
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.4);
+  flex-shrink:0;
+  text-align:left;
+}
+
+.reseña-card p{
+  font-size:16px;
+  line-height:1.4;
+  margin:10px 0;
+}
+
+.reseña-card h4{
+  color:#FFD700;
+  margin-top:10px;
+  text-align:right;
+}
+
+/* Botón dejar reseña */
+.dejar-reseña{
+  margin-top:30px;
+  background:#25D366;
+  color:white;
+  padding:12px 25px;
+  border-radius:5px;
+  font-weight:bold;
+  text-decoration:none;
+  font-size:18px;
+  display:inline-block;
+  transition:0.3s;
+}
+
+.dejar-reseña:hover{
+  background:#1ebe5d;
+}
+
+/* Flechas */
+.slide-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,0.5);
+  color:white;
+  border:none;
+  font-size:30px;
+  padding:10px;
+  cursor:pointer;
+  border-radius:50%;
+  z-index:10;
+}
+
+.slide-btn.prev{
+  left:0;
+}
+
+.slide-btn.next{
+  right:0;
+}
+
+/* Quitar scroll visual */
+.reseñas-slider::-webkit-scrollbar{
+  display:none;
+}
+
+.reseñas-slider{
+  -ms-overflow-style:none;
+  scrollbar-width:none;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .reseña-card{
+    min-width:80%;
+    max-width:90%;
+  }
+  #reseñas h2{
+    font-size:28px;
+  }
+}
+
 
 

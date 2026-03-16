@@ -1,4 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // -------------------------------
+// SLIDER AUTOMÁTICO DE RESEÑAS
+// -------------------------------
+const slider = document.querySelector('.reseñas-slider');
+const prevBtn = document.querySelector('.slide-btn.prev');
+const nextBtn = document.querySelector('.slide-btn.next');
+
+if(slider && prevBtn && nextBtn){
+  let scrollAmount = 0;
+  const cardWidth = 330; // ancho card + gap
+
+  // Flechas
+  nextBtn.addEventListener('click', () => {
+      if(scrollAmount < (slider.scrollWidth - slider.clientWidth)){
+          scrollAmount += cardWidth;
+      } else {
+          scrollAmount = 0; // reinicia al final
+      }
+      slider.style.transform = `translateX(-${scrollAmount}px)`;
+  });
+
+  prevBtn.addEventListener('click', () => {
+      if(scrollAmount > 0){
+          scrollAmount -= cardWidth;
+      } else {
+          scrollAmount = slider.scrollWidth - slider.clientWidth; // ir al final
+      }
+      slider.style.transform = `translateX(-${scrollAmount}px)`;
+  });
+
+  // Slider automático cada 5 segundos
+  setInterval(() => {
+      if(scrollAmount < (slider.scrollWidth - slider.clientWidth)){
+          scrollAmount += cardWidth;
+      } else {
+          scrollAmount = 0;
+      }
+      slider.style.transform = `translateX(-${scrollAmount}px)`;
+  }, 5000);
+}
 
   // -------------------------------
   // MENÚ HAMBURGUESA
