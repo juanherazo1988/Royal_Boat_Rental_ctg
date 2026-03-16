@@ -81,9 +81,9 @@ margin-bottom:30px;
 /* BOTON */
 
 .btn{
-background:#25D366;
-padding:16px 32px;
-border-radius:12px;
+background:#d3140e;
+padding:10px 10px;
+border-radius:15px;
 color:white;
 text-decoration:none;
 font-weight:bold;
@@ -94,7 +94,7 @@ transition:0.3s;
 
 .btn:hover{
 transform:scale(1.05);
-background:#1ebe5d;
+background:#0b0c0c;
 }
 
 /* SECCIONES */
@@ -413,5 +413,17 @@ background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("images/bo
 }
 
 }
+
+
+#faq .card{
+margin:15px auto;
+max-width:600px;
+text-align:left;
+}
+
+#faq h3{
+color:#FFD700;
+}
+
 
 
