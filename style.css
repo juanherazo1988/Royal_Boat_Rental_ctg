@@ -82,12 +82,12 @@ margin-bottom:30px;
 
 .btn{
 background:#d3140e;
-padding:10px 10px;
-border-radius:15px;
+padding:10px 15px;
+border-radius:20px;
 color:white;
 text-decoration:none;
 font-weight:bold;
-font-size:18px;
+font-size:15px;
 box-shadow:0 5px 15px rgba(0,0,0,0.3);
 transition:0.3s;
 }
@@ -280,7 +280,7 @@ transform:scale(1.05);
 
 .whatsapp-float{
     position:fixed;
-    bottom:25px;
+    bottom:15px;
     right:25px;
     background:#25D366;
     color:white;

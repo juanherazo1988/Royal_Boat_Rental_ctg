@@ -8,7 +8,7 @@ const nextBtn = document.querySelector('.slide-btn.next');
 
 if(slider && prevBtn && nextBtn){
   let scrollAmount = 0;
-  const cardWidth = 330; // ancho card + gap
+  const cardWidth = slider.querySelector('.reseña-card').offsetWidth + 20;
 
   // Flechas
   nextBtn.addEventListener('click', () => {
