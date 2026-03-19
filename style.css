@@ -35,7 +35,7 @@ nav {
 nav a{
 color:white;
 text-decoration:none;
-font-size:18px;
+font-size:16px;
 font-weight:bold;
 transition:0.3s;
 }
@@ -530,6 +530,13 @@ color:#FFD700;
   #reseñas h2{
     font-size:28px;
   }
+}
+
+#yates h2,
+#catamaranes h2{
+  color:#FFD700;
+  font-size:36px;
+  margin-bottom:30px;
 }
 
 
