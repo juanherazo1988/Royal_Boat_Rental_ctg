@@ -1,44 +1,68 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+  const slider = document.querySelector('.reseñas-slider');
+  const prevBtn = document.querySelector('.slide-btn.prev');
+  const nextBtn = document.querySelector('.slide-btn.next');
+  let currentIndex = 0;
+
   // -------------------------------
-// SLIDER AUTOMÁTICO DE RESEÑAS
-// -------------------------------
-const slider = document.querySelector('.reseñas-slider');
-const prevBtn = document.querySelector('.slide-btn.prev');
-const nextBtn = document.querySelector('.slide-btn.next');
+  // CARGAR RESEÑAS DESDE FIRESTORE
+  // -------------------------------
+  db.collection("reseñas")
+    .orderBy("fecha", "desc")
+    .onSnapshot(snapshot => {
+      slider.innerHTML = "";
+      snapshot.forEach(doc => {
+        const r = doc.data();
+        const card = document.createElement("div");
+        card.classList.add("reseña-card");
+        card.innerHTML = `
+          <p class="estrellas">★★★★★</p>
+          <p>"${r.mensaje}"</p>
+          <h4>- ${r.nombre}</h4>
+        `;
+        slider.appendChild(card);
+      });
+      currentIndex = 0;
+      updateSlider();
+    });
 
-if(slider && prevBtn && nextBtn){
-  let scrollAmount = 0;
-  const cardWidth = slider.querySelector('.reseña-card').offsetWidth + 20;
+  // -------------------------------
+  // FUNCIONES DE DESLIZAMIENTO
+  // -------------------------------
+  function updateSlider() {
+    const card = slider.querySelector('.reseña-card');
+    if (!card) return;
+    const cardWidth = card.offsetWidth + 20; // gap entre cards
+    slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+  }
 
-  // Flechas
-  nextBtn.addEventListener('click', () => {
-      if(scrollAmount < (slider.scrollWidth - slider.clientWidth)){
-          scrollAmount += cardWidth;
-      } else {
-          scrollAmount = 0; // reinicia al final
-      }
-      slider.style.transform = `translateX(-${scrollAmount}px)`;
-  });
+  function slideNext() {
+    const cards = slider.querySelectorAll('.reseña-card');
+    if (!cards.length) return;
+    currentIndex = (currentIndex + 1) % cards.length;
+    updateSlider();
+  }
 
-  prevBtn.addEventListener('click', () => {
-      if(scrollAmount > 0){
-          scrollAmount -= cardWidth;
-      } else {
-          scrollAmount = slider.scrollWidth - slider.clientWidth; // ir al final
-      }
-      slider.style.transform = `translateX(-${scrollAmount}px)`;
-  });
+  function slidePrev() {
+    const cards = slider.querySelectorAll('.reseña-card');
+    if (!cards.length) return;
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+    updateSlider();
+  }
 
-  // Slider automático cada 5 segundos
-  setInterval(() => {
-      if(scrollAmount < (slider.scrollWidth - slider.clientWidth)){
-          scrollAmount += cardWidth;
-      } else {
-          scrollAmount = 0;
-      }
-      slider.style.transform = `translateX(-${scrollAmount}px)`;
-  }, 5000);
-}
+  // -------------------------------
+  // BOTONES
+  // -------------------------------
+  if (prevBtn) prevBtn.addEventListener('click', slidePrev);
+  if (nextBtn) nextBtn.addEventListener('click', slideNext);
+
+  // -------------------------------
+  // DESLIZAMIENTO AUTOMÁTICO
+  // -------------------------------
+  setInterval(slideNext, 5000);
+
+});
 
   // -------------------------------
   // MENÚ HAMBURGUESA
@@ -90,7 +114,7 @@ if(slider && prevBtn && nextBtn){
 
   mostrarReseñas();
 
-});
+
 
 
 function agregarReseña(){
@@ -103,26 +127,18 @@ function agregarReseña(){
     return;
   }
 
-  const nuevaReseña = {
+  db.collection("reseñas").add({
     nombre: nombre,
-    mensaje: mensaje
-  };
-
-  // Obtener reseñas guardadas
-  let reseñas = JSON.parse(localStorage.getItem("reseñas")) || [];
-
-  // Agregar nueva
-  reseñas.push(nuevaReseña);
-
-  // Guardar
-  localStorage.setItem("reseñas", JSON.stringify(reseñas));
-
-  // Mostrar en pantalla
-  mostrarReseñas();
-
-  // Limpiar campos
-  document.getElementById("nombre").value = "";
-  document.getElementById("mensaje").value = "";
+    mensaje: mensaje,
+    fecha: new Date()
+  })
+  .then(() => {
+    document.getElementById("nombre").value = "";
+    document.getElementById("mensaje").value = "";
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
 }
 
 function mostrarReseñas(){

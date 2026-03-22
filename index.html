@@ -13,6 +13,26 @@
 
 </head>
 
+<script src="script.js"></script>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyCoMLyv2utwrto_SE-MsbA0nqJgKWN4ei0",
+    authDomain: "royal-boat-rental.firebaseapp.com",
+    projectId: "royal-boat-rental",
+    storageBucket: "royal-boat-rental.firebasestorage.app",
+    messagingSenderId: "698807004543",
+    appId: "1:698807004543:web:175e26a5144a5a07537e4a"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+</script>
+
 <body>
 
 <header>
