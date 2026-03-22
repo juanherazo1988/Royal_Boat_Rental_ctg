@@ -88,4 +88,63 @@ if(slider && prevBtn && nextBtn){
     });
   });
 
+  mostrarReseñas();
+
 });
+
+
+function agregarReseña(){
+
+  const nombre = document.getElementById("nombre").value;
+  const mensaje = document.getElementById("mensaje").value;
+
+  if(nombre === "" || mensaje === ""){
+    alert("Por favor completa todos los campos");
+    return;
+  }
+
+  const nuevaReseña = {
+    nombre: nombre,
+    mensaje: mensaje
+  };
+
+  // Obtener reseñas guardadas
+  let reseñas = JSON.parse(localStorage.getItem("reseñas")) || [];
+
+  // Agregar nueva
+  reseñas.push(nuevaReseña);
+
+  // Guardar
+  localStorage.setItem("reseñas", JSON.stringify(reseñas));
+
+  // Mostrar en pantalla
+  mostrarReseñas();
+
+  // Limpiar campos
+  document.getElementById("nombre").value = "";
+  document.getElementById("mensaje").value = "";
+}
+
+function mostrarReseñas(){
+
+  const slider = document.querySelector('.reseñas-slider');
+
+  // limpiar antes de volver a pintar
+  slider.innerHTML = "";
+
+  let reseñas = JSON.parse(localStorage.getItem("reseñas")) || [];
+
+  reseñas.forEach(r => {
+
+    const card = document.createElement("div");
+    card.classList.add("reseña-card");
+
+    card.innerHTML = `
+      <p class="estrellas">★★★★★</p>
+      <p>"${r.mensaje}"</p>
+      <h4>- ${r.nombre}</h4>
+    `;
+
+    slider.appendChild(card);
+  });
+}

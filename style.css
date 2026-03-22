@@ -539,5 +539,33 @@ color:#FFD700;
   margin-bottom:30px;
 }
 
+/* FORMULARIO RESEÑA */
+.form-reseña{
+  max-width:400px;
+  margin:40px auto;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.form-reseña input,
+.form-reseña textarea{
+  padding:10px;
+  border:none;
+  border-radius:5px;
+  font-size:16px;
+}
+
+.form-reseña textarea{
+  height:100px;
+  resize:none;
+}
+
+.estrellas{
+  color:#FFD700;
+  font-size:20px;
+  letter-spacing:2px;
+}
+
 
 
